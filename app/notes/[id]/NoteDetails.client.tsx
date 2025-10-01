@@ -10,6 +10,7 @@ import Error from "./error";
 import NotePreview from "@/components/NotePreview/NotePreview";
 
 type Props = {
+  data: Note;
   onClose: () => void;
 };
 

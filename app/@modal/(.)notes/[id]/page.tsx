@@ -1,23 +1,12 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-import Modal from "@/components/Modal/Modal";
-import Details from "@/app/notes/[id]/NoteDetails.client";
+import { fetchNoteById } from "@/lib/api";
+import NotePreviewDetails from "./NotePreview.client";
 
 type Props = {
   params: { id: string };
 };
 
-export default function NoteModal({ params }: Props) {
-  const router = useRouter();
+export default async function NoteModal({ params }: Props) {
+  const data = await fetchNoteById({ noteId: params.id });
 
-  const handleClose = () => {
-    router.back();
-  };
-
-  return (
-    <Modal onClose={handleClose}>
-      <Details onClose={handleClose} />
-    </Modal>
-  );
+  return <NotePreviewDetails data={data} />;
 }
