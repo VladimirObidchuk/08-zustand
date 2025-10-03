@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
           width: 1200,
           height: 630,
-          alt: "",
+          alt: "image for notes hub",
         },
       ],
       type: "article",
