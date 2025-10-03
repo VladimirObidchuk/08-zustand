@@ -1,5 +1,27 @@
 import React from "react";
 import css from "./not-found.module.css";
+import { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Notes page not found",
+    description: "The page you are looking for does not exist",
+    openGraph: {
+      title: "Notes page not found",
+      description: "The page you are looking for does not exist",
+
+      images: [
+        {
+          url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+          width: 1200,
+          height: 630,
+          alt: "",
+        },
+      ],
+      type: "article",
+    },
+  };
+}
 
 const notFound = () => {
   return (
