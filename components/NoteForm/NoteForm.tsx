@@ -7,16 +7,12 @@ import css from "./NoteForm.module.css";
 import Button from "../Button/Button";
 import { useQueryClient } from "@tanstack/react-query";
 import { createNote } from "@/lib/api";
+import { useRouter } from "next/navigation";
 
 type NoteFormValues = {
   title: string;
   content: string;
   tag: "Work" | "Personal" | "Meeting" | "Shopping" | "Todo";
-};
-
-type Props = {
-  onSuccess: () => void;
-  onClose: () => void;
 };
 
 const validationSchema = Yup.object({
@@ -27,8 +23,10 @@ const validationSchema = Yup.object({
     .required(),
 });
 
-const NoteForm = ({ onSuccess, onClose }: Props) => {
+const NoteForm = () => {
   const queryClient = useQueryClient();
+  const router = useRouter();
+
   const initialValues: NoteFormValues = {
     title: "",
     content: "",
@@ -43,7 +41,7 @@ const NoteForm = ({ onSuccess, onClose }: Props) => {
       await createNote(values);
       await queryClient.invalidateQueries({ queryKey: ["notes"] });
       resetForm();
-      onSuccess();
+      router.push("/notes");
     } catch (err) {
       console.error(err);
     } finally {
@@ -91,7 +89,7 @@ const NoteForm = ({ onSuccess, onClose }: Props) => {
               typeBtn="button"
               className={css.cancelButton}
               value="Cancel"
-              onClick={onClose}
+              onClick={() => router.back()}
             />
             <Button
               typeBtn="submit"
