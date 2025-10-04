@@ -5,6 +5,7 @@ import css from "./CreateNote.module.css";
 import NoteForm from "../NoteForm/NoteForm";
 
 const CreateNotePage = () => {
+  console.log("🚀 ~ css:", css);
   return (
     <main className={css.main}>
       <div className={css.container}>
