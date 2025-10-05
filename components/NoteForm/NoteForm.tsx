@@ -79,6 +79,7 @@ const NoteForm = ({ onSuccess, onClose }: Props) => {
       <div className={css.formGroup}>
         <label htmlFor="title">Title</label>
         <input
+          id="title"
           name="title"
           type="text"
           value={draft.title}
@@ -91,6 +92,7 @@ const NoteForm = ({ onSuccess, onClose }: Props) => {
       <div className={css.formGroup}>
         <label htmlFor="content">Content</label>
         <textarea
+          id="content"
           name="content"
           value={draft.content}
           onChange={handleChange}
@@ -102,6 +104,7 @@ const NoteForm = ({ onSuccess, onClose }: Props) => {
       <div className={css.formGroup}>
         <label htmlFor="tag">Tag</label>
         <select
+          id="tag"
           name="tag"
           value={draft.tag}
           onChange={handleChange}

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import css from "./CreateNote.module.css";
+import css from "@/components/CreateNote/CreateNote.module.css";
 import NoteForm from "../NoteForm/NoteForm";
 
 const CreateNotePage = () => {

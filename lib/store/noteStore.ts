@@ -1,4 +1,4 @@
-import { NoteDraft } from "@/types/note";
+import { NoteDraft, NoteTag } from "@/types/note";
 import { create } from "zustand";
 
 type NoteDraftStore = {
@@ -10,7 +10,7 @@ type NoteDraftStore = {
 const initialDraft = {
   title: "",
   content: "",
-  tag: "Todo",
+  tag: NoteTag.Todo,
 };
 
 export const useNoteDraftStore = create<NoteDraftStore>()((set) => ({
