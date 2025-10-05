@@ -82,7 +82,7 @@ const NoteForm = ({ onSuccess, onClose }: Props) => {
           id="title"
           name="title"
           type="text"
-          value={draft.title}
+          defaultValue={draft?.title}
           onChange={handleChange}
           className={css.input}
         />
@@ -94,7 +94,7 @@ const NoteForm = ({ onSuccess, onClose }: Props) => {
         <textarea
           id="content"
           name="content"
-          value={draft.content}
+          defaultValue={draft?.content}
           onChange={handleChange}
           className={css.textarea}
         />
@@ -106,7 +106,7 @@ const NoteForm = ({ onSuccess, onClose }: Props) => {
         <select
           id="tag"
           name="tag"
-          value={draft.tag}
+          defaultValue={draft?.tag}
           onChange={handleChange}
           className={css.select}
         >
